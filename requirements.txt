@@ -6,6 +6,7 @@ click==8.1.7
 colorama==0.4.6
 cryptography==42.0.3
 et-xmlfile==1.1.0
+exceptiongroup==1.2.1
 h11==0.14.0
 idna==3.6
 libretranslatepy==2.1.1
@@ -20,6 +21,7 @@ pyOpenSSL==24.0.0
 python-dateutil==2.8.2
 python-dotenv==1.0.1
 pytz==2024.1
+r4ven_utils==0.0.7
 requests==2.31.0
 selenium==4.1.0
 six==1.16.0
