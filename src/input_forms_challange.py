@@ -95,12 +95,18 @@ class Challenge:
         try:
             url = 'https://rpachallenge.com/assets/downloadFiles/challenge.xlsx'
             file = requests.get(url, allow_redirects=True)
+
             data_folder = os.path.join(parent_directory, "data")
             os.makedirs(data_folder, exist_ok=True)  # Ensure data folder exists
             file_path = os.path.join(data_folder, 'input_forms_challenge.xlsx')
+
             with open(file_path, 'wb') as f:
                 f.write(file.content)
             data = pd.read_excel(file_path)
+
+            # Remove trailing spaces from column names
+            data.columns = data.columns.str.rstrip()
+
             return data
         except Exception as error:
             log4me.error(f'Error downloading or saving the file: {error}')
@@ -112,7 +118,7 @@ class Challenge:
             for index, row in data.iterrows():
                 try:
                     self.driver.find_element(By.XPATH, '//input[@ng-reflect-name="labelFirstName"]').send_keys(row['First Name'])
-                    self.driver.find_element(By.XPATH, '//input[@ng-reflect-name="labelLastName"]').send_keys(row['Last Name '])
+                    self.driver.find_element(By.XPATH, '//input[@ng-reflect-name="labelLastName"]').send_keys(row['Last Name'])
                     self.driver.find_element(By.XPATH, '//input[@ng-reflect-name="labelCompanyName"]').send_keys(row['Company Name'])
                     self.driver.find_element(By.XPATH, '//input[@ng-reflect-name="labelRole"]').send_keys(row['Role in Company'])
                     self.driver.find_element(By.XPATH, '//input[@ng-reflect-name="labelAddress"]').send_keys(row['Address'])
