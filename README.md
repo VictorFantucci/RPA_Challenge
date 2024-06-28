@@ -54,7 +54,7 @@ At the end of the data entry, the page displays a message showing the time the r
 1. Run the main script:
 
    ```bash
-   python rpa_challenge.py
+   python -m src.rpa_challenge
    ```
 
 2. The robot will download the XLSX file, read the data, fill out the form on the website, and display the execution time message, which will be translated and captured as a screenshot.
@@ -70,7 +70,8 @@ rpa-challenge-automation/
 ├── screenshots/
 │   └── result.png             # Final screen screenshot
 │
-├── rpa_challenge.py           # Main script
+├── src/
+│   └── rpa_challenge.py       # Main script
 ├── requirements.txt           # Project dependencies
 └── README.md                  # Project documentation
 ```
