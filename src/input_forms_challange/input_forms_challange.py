@@ -41,7 +41,7 @@ from selenium.webdriver.support import expected_conditions as ec
 warnings.filterwarnings('ignore')
 
 # Get the name of the directory where this file is present.
-current_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+current_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 # Get the parent directory name where the current directory is present.
 parent_directory = os.path.dirname(current_directory)
